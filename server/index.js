@@ -13,6 +13,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use('/api/dogs', require('./api/dogs'));
+app.use('/api/owner', require('./api/owners'));
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`)
