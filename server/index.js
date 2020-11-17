@@ -15,6 +15,13 @@ app.use(bodyParser.json());
 app.use('/api/dogs', require('./api/dogs'));
 app.use('/api/owner', require('./api/owners'));
 
+if (ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.use((req, res) => {
+        res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    });
+}
+
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`)
 }).setTimeout(5000);

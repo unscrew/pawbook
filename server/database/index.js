@@ -2,12 +2,13 @@ var { Pool } = require('pg');
 
 const CONNECTION_STRING = process.env.DATABASE_URL || 'postgresql://postgres@localhost:5432/pawbook';
 const SSL = process.env.NODE_ENV === 'production';
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 
 class Database {
     constructor () {
         this._pool = new Pool({
             connectionString: CONNECTION_STRING,
-            ssl: SSL
+            ssl: { rejectUnauthorized: false }
         });
 
         // error handling
