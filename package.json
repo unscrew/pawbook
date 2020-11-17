@@ -4,7 +4,9 @@
   "description": "Social Network Service for Pets",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "server": "nodemon server"
   },
   "repository": {
     "type": "git",

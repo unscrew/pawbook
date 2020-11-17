@@ -1,4 +1,4 @@
-const db = request('../database');
+const db = require('../database');
 const request = require('request-promise');
 
 //const API_KEY = dfdf;
